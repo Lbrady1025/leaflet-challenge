@@ -17,4 +17,25 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 d3.json(url, function(response) {
+  var markers = L.markerClusterGroup();
+    
+    for (var i = 0; i < response.length; i++) {
+      
+      var location = response[i].place;
+  
+      // Check for location property
+      if (place) {
+  
+        // Add a new marker to the cluster group and bind a pop-up
+        markers.addLayer(L.marker([location.coordinates[1], location.coordinates[0]])
+          .bindPopup(response[i].descriptor));
+      }
+  
+    }
+  
+    // Add our marker cluster layer to the map
+    myMap.addLayer(markers);
+  
+  });
+  
 
