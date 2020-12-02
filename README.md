@@ -4,5 +4,6 @@ This challenge used Leaflet and D3 to add geoJSON data regarding earthquakes ont
 
 The visualization displays all the earthquakes and indicates the intensity of each earthquake by magnitude. A popup displays the location, magnitude, and time of the earthquake:
 
-![alt text](https://github.com/lbrady1025/leaflet-challenge/screenshot1.png "Screenshot of Map")
+![alt text](https://github.com/Lbrady1025/leaflet-challenge/blob/main/screenshot1.PNG "Screenshot of Map")
 
+The color of the circle indicates the magnitude of the earthquake, as well as the size of the circle. The legend describes the magnitudes.
