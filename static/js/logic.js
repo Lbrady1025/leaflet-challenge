@@ -30,4 +30,26 @@ function getFeatures(data) {
   function onEachFeature(feature, layer) {
     layer.bindPopup("<h2>" + feature.properties.place + "</h2><hr><h1>Magnitude: " + feature.properties.mag + "</h1><p>" + new Date(feature.properties.time) + "</p>");
   }
+
+  function color(mag) {
+    if (mag < 1) {
+      return "green"
+    }
+    else if (mag < 2) {
+      return "lightgreen"
+    }
+    else if (mag < 3) {
+      return "yellow"
+    }
+    else if (mag < 4) {
+      return "orange"
+    }
+    else if (mag < 5) {
+      return "orangered"
+    }
+    else {
+      return "red"
+    }
+  }
+
 }
