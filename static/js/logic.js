@@ -64,3 +64,13 @@ function getFeatures(data) {
   }).addTo(myMap);
 
 }
+
+function getColor(d) {
+  return d > 5 ? "red" :
+        d > 4 ? "orangered" :
+        d > 3 ? "yellow" :
+        d > 2 ? "lightgreen" :
+        d > 1 ? "green" :
+                "lime";
+}
+
