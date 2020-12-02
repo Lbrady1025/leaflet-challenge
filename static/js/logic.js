@@ -68,9 +68,27 @@ function getFeatures(data) {
 function getColor(d) {
   return d > 5 ? "red" :
         d > 4 ? "orangered" :
-        d > 3 ? "yellow" :
-        d > 2 ? "lightgreen" :
-        d > 1 ? "green" :
-                "lime";
+        d > 3 ? "orange" :
+        d > 2 ? "yellow" :
+        d > 1 ? "lightgreen" :
+                "green";
 }
 
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (myMap) {
+
+  var div = L.DomUtil.create("div", "info legend"),
+    mags = [0, 1, 2, 3, 4, 5],
+    labels = [];
+
+  for (var i = 0; i < mags.length; i ++) {
+    //div.innerHTML +=
+    labels.push(
+      '<i style="background:' + getColor(mags[i] + 1) + '"></i> ' + mags[i] + (mags[i + 1] ? '&ndash;' + mags[i+1] + '<br>' : '+'));
+  }
+  div.innerHTML = labels.join('<br>');
+  return div;
+};
+
+legend.addTo(myMap);
