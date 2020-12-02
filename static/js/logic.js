@@ -21,4 +21,13 @@ d3.json(url, function (response) {
   console.log(response.features);
 });
   
-
+function getFeatures(data) {
+  
+  function radius(mag) {
+    return mag * 10000;
+  }
+  
+  function onEachFeature(feature, layer) {
+    layer.bindPopup("<h2>" + feature.properties.place + "</h2><hr><h1>Magnitude: " + feature.properties.mag + "</h1><p>" + new Date(feature.properties.time) + "</p>");
+  }
+}
