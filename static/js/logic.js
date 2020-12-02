@@ -52,4 +52,15 @@ function getFeatures(data) {
     }
   }
 
+  var earthquakes = L.geoJSON(data, {
+    pointToLayer: function(data, latlng) {
+      return L.circle(latlng, {
+        radius: radius(data.properties.mag),
+        color: color(data.properties.mag),
+        fillOpacity: 0.5
+      });
+    },
+    onEachFeature: onEachFeature
+  }).addTo(myMap);
+
 }
